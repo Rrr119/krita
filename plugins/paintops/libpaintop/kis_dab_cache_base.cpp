@@ -13,6 +13,7 @@
 #include <KisMirrorOption.h>
 #include <KisSharpnessOption.h>
 #include <kis_texture_option.h>
+#include <KisWetEdgeOption.h>
 #include <kis_precision_option.h>
 #include <kis_fixed_paint_device.h>
 #include <brushengine/kis_paintop.h>
@@ -140,10 +141,12 @@ KisDabCacheBase::getDabParameters(KisBrushSP brush,
 }
 
 bool KisDabCacheBase::needSeparateOriginal(KisTextureOption *textureOption,
-                                           KisSharpnessOption *sharpnessOption) const
+                                           KisSharpnessOption *sharpnessOption,
+                                           KisWetEdgeOption *wetEdgeOption) const
 {
     return (textureOption && textureOption->m_enabled) ||
-           (sharpnessOption && sharpnessOption->isChecked());
+           (sharpnessOption && sharpnessOption->isChecked()) ||
+           (wetEdgeOption && wetEdgeOption->isChecked());
 }
 
 struct KisDabCacheBase::DabPosition {
@@ -283,6 +286,6 @@ void KisDabCacheBase::fetchDabGenerationInfo(bool hasDabInCache,
         m_d->lastSavedDabParameters = newParams;
     }
 
-    di->needsPostprocessing = needSeparateOriginal(resources->textureOption.get(), resources->sharpnessOption.get());
+    di->needsPostprocessing = needSeparateOriginal(resources->textureOption.get(), resources->sharpnessOption.get(), resources->wetEdgeOption.get());
 }
 

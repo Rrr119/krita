@@ -43,6 +43,10 @@ set(kritalibpaintop_LIB_SRCS
     KisSharpnessOptionModel.cpp
     KisSharpnessOptionWidget.cpp
     KisSharpnessOption.cpp
+    KisWetEdgeOptionData.cpp
+    KisWetEdgeOptionModel.cpp
+    KisWetEdgeOptionWidget.cpp
+    KisWetEdgeOption.cpp
     KisScatterOptionData.cpp
     KisScatterOptionModel.cpp
     KisScatterOptionWidget.cpp

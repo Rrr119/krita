@@ -27,6 +27,7 @@
 #include "KisLightnessStrengthOptionWidget.h"
 #include "KisTextureOptionWidget.h"
 #include "KisSizeOptionWidget.h"
+#include "KisWetEdgeOptionWidget.h"
 
 #include <KisStandardOptionData.h>
 #include <KisPaintOpOptionWidgetUtils.h>
@@ -76,6 +77,7 @@ KisBrushOpSettingsWidget::KisBrushOpSettingsWidget(QWidget* parent, KisResources
 
     addPaintOpOption(kpowu::createOptionWidget<KisTextureOptionWidget>(KisTextureOptionData(), resourcesInterface, SupportsLightnessMode | SupportsGradientMode));
     addPaintOpOption(kpowu::createStrengthOptionWidget());
+    addPaintOpOption(kpowu::createOptionWidget<KisWetEdgeOptionWidget>());
 
     addPaintOpOption(maskingOption);
 

@@ -13,6 +13,7 @@
 #include "kis_color_source.h"
 #include "KisSharpnessOption.h"
 #include "kis_texture_option.h"
+#include "KisWetEdgeOption.h"
 
 #include <kundo2command.h>
 
@@ -32,6 +33,7 @@ struct KisDabCache::Private {
 
     KisSharpnessOption *sharpnessOption = 0;
     KisTextureOption *textureOption = 0;
+    KisWetEdgeOption *wetEdgeOption = 0;
 };
 
 
@@ -56,9 +58,14 @@ void KisDabCache::setTexturePostprocessing(KisTextureOption *option)
     m_d->textureOption = option;
 }
 
+void KisDabCache::setWetEdgePostprocessing(KisWetEdgeOption *option)
+{
+    m_d->wetEdgeOption = option;
+}
+
 bool KisDabCache::needSeparateOriginal() const
 {
-    return KisDabCacheBase::needSeparateOriginal(m_d->textureOption, m_d->sharpnessOption);
+    return KisDabCacheBase::needSeparateOriginal(m_d->textureOption, m_d->sharpnessOption, m_d->wetEdgeOption);
 }
 
 
@@ -146,6 +153,7 @@ struct TemporaryResourcesWithoutOwning : public KisDabCacheUtils::DabRenderingRe
         colorSource.release();
         sharpnessOption.release();
         textureOption.release();
+        wetEdgeOption.release();
     }
 };
 
@@ -189,6 +197,7 @@ KisFixedPaintDeviceSP KisDabCache::fetchDabCommon(const KoColorSpace *cs,
     resources.colorSource.reset(colorSource);
     resources.sharpnessOption.reset(m_d->sharpnessOption);
     resources.textureOption.reset(m_d->textureOption);
+    resources.wetEdgeOption.reset(m_d->wetEdgeOption);
 
 
     DabGenerationInfo di;

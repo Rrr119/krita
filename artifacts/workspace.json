@@ -1,0 +1,17 @@
+{
+  "root": "/home/dev/feedback/uid24899",
+  "B": "/home/dev/feedback/uid24899",
+  "sha": "a15ca6d4b93bb549d66e865923930c8000a23641",
+  "wslDistro": "Ubuntu-26.04",
+  "source": {
+    "owner": "KDE",
+    "repo": "krita",
+    "sha": "a15ca6d4b93bb549d66e865923930c8000a23641"
+  },
+  "fork": {
+    "owner": "Rrr119",
+    "repo": "krita",
+    "cloneUrl": "https://github.com/Rrr119/krita.git"
+  },
+  "at": "2026-11-18T05:30:31.057Z"
+}

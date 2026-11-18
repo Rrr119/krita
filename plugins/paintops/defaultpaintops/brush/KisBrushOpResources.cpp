@@ -14,6 +14,7 @@
 #include "kis_color_source.h"
 #include "kis_color_source_option.h"
 #include "KisSharpnessOption.h"
+#include "KisWetEdgeOption.h"
 #include "KisStandardOptions.h"
 #include "KisDarkenOption.h"
 #include "KisHSVOption.h"
@@ -43,6 +44,8 @@ KisBrushOpResources::KisBrushOpResources(const KisPaintOpSettingsSP settings, Ki
     colorSource.reset(colorSourceOption.createColorSource(painter));
 
     sharpnessOption.reset(new KisSharpnessOption(settings.data()));
+
+    wetEdgeOption.reset(new KisWetEdgeOption(settings.data()));
 
     textureOption.reset(new KisTextureOption(settings.data(),
                                              settings->resourcesInterface(),

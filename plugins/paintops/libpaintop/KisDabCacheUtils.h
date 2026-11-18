@@ -27,6 +27,7 @@ typedef QSharedPointer<KisBrush> KisBrushSP;
 class KisColorSource;
 class KisSharpnessOption;
 class KisTextureOption;
+class KisWetEdgeOption;
 
 
 namespace KisDabCacheUtils
@@ -44,6 +45,7 @@ struct PAINTOP_EXPORT DabRenderingResources
 
     std::unique_ptr<KisSharpnessOption> sharpnessOption;
     std::unique_ptr<KisTextureOption> textureOption;
+    std::unique_ptr<KisWetEdgeOption> wetEdgeOption;
 
     KisPaintDeviceSP colorSourceDevice;
 

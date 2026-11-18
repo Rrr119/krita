@@ -13,6 +13,7 @@
 
 #include <KisSharpnessOption.h>
 #include <kis_texture_option.h>
+#include <KisWetEdgeOption.h>
 
 #include <kundo2command.h>
 
@@ -101,6 +102,10 @@ void postProcessDab(KisFixedPaintDeviceSP dab,
 
     if (resources->textureOption) {
         resources->textureOption->apply(dab, dabTopLeft, info);
+    }
+
+    if (resources->wetEdgeOption) {
+        resources->wetEdgeOption->apply(dab, info);
     }
 }
 
